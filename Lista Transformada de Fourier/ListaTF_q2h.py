@@ -1,0 +1,40 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(12, 5))
+
+plt.subplot(1, 3, 1)
+t = np.linspace(-1, 5, 1000)
+f = t * np.exp(-t) * (t >= 0)
+plt.plot(t, f, 'b', linewidth=2)
+plt.title('Função no Tempo')
+plt.xlabel('t')
+plt.ylabel('f(t)')
+plt.grid(True)
+plt.xlim(-1, 5)
+plt.ylim(0, 0.5)
+
+plt.subplot(1, 3, 2)
+w = np.linspace(-10, 10, 1000)
+magnitude = 1 / (1 + w**2)
+plt.plot(w, magnitude, 'b', linewidth=2)
+plt.title('Magnitude')
+plt.xlabel('$\\omega$')
+plt.ylabel('|F($\\omega$)|')
+plt.grid(True)
+plt.xlim(-10, 10)
+plt.ylim(0, 1.2)
+
+# 3. Gráfico da fase: -2 * arctan(w)
+plt.subplot(1, 3, 3)
+phase = -2 * np.arctan(w)
+plt.plot(w, phase, 'b', linewidth=2)
+plt.title('Fase')
+plt.xlabel('$\\omega$')
+plt.ylabel('∠F($\\omega$) [rad]')
+plt.grid(True)
+plt.xlim(-10, 10)
+plt.ylim(-np.pi, np.pi)
+
+plt.tight_layout()
+plt.show()
